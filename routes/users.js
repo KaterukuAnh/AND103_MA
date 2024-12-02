@@ -36,4 +36,8 @@ router.post("/login", async function (req, res) {
   }
 });
 
+router.get("/news", async function (req, res) {
+  res.json({new: true});
+});
+
 module.exports = router;
