@@ -27,7 +27,7 @@ router.post("/login", async function (req, res) {
     if(checkUser == null){
       res.status(200).json({status: false, message:"username và mk k đúng"});
     }else{
-      const token = JWT.sign({username: username},config.SECRETKEY,{expiresIn: '30s'});
+      const token = JWT.sign({username: username},config.SECRETKEY,{expiresIn: '1h'});
       const refreshToken = JWT.sign({username: username},config.SECRETKEY,{expiresIn: '1d'});
       res.status(200).json({status: true, message:"Đăng nhập thành công", token: token, refreshToken: refreshToken});
     }
