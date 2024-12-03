@@ -21,8 +21,8 @@ router.get('/:id', async (req, res) => {
         const list = await tinhModel.findById(req.params.id);
         if (!list) return res.status(404).json({ error: 'Tỉnh không tồn tại' });
         res.status(200).json(list);
-    } catch (err) {
-        res.status(500).json({ error: 'Lỗi khi lấy thông tin tỉnh' });
+    } catch (error) {
+        res.status(404).json({ status: false, message: "Đã có lỗi xảy ra" + error });
     }
 });
 
